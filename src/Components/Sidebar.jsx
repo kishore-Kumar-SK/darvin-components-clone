@@ -49,15 +49,12 @@ const Sidebar = () => {
                     " &:focus": {
                       backgroundColor: "#DFEFFF",
                     },
+                    transition: "background-color 0.3s ease-in-out",
                   }}
                   onClick={(event) => {
                     event.persist();
                     dispatch(selecValue(index));
-                  }}SignUp
-SignUp
-SignUpSignUp
-SignUp
-SignUp
+                  }}
                 >
                   {item.icon}
                 </ListItemButton>

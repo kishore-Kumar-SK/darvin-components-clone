@@ -1,10 +1,15 @@
-import React from 'react';
-import { Grid } from '@mui/material';
-import Loginimg from '../../Assets/Login.svg'
+import React from "react";
+import { Grid } from "@mui/material";
+import Loginimg from "../../Assets/Login.svg";
 
 const LoginImg = () => {
   return (
-    <Grid item xs={12} md={7} sx={{ height: "100%" }}>
+    <Grid
+      item
+      xs={12}
+      md={7}
+      sx={{ height: "100%", display: { xs: "none", md: "block" } }}
+    >
       <img
         src={Loginimg}
         alt="login"
@@ -16,7 +21,7 @@ const LoginImg = () => {
         }}
       />
     </Grid>
-  )
-}
+  );
+};
 
-export default LoginImg
+export default LoginImg;
