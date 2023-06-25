@@ -9,11 +9,11 @@ export default function CustomButton(props) {
     width: props.buttonWidth ? props.buttonWidth : "max-content",
 
     textTransform: "none",
-
+    fontSize: "clamp(1.05rem, calc(1.02rem + 0.16vw), 1.22rem)",
     color: props.buttonColor,
 
-    paddingTop:props.buttonPadding,
-    paddingBottom:props.buttonPadding,
+    paddingTop: props.buttonPadding,
+    paddingBottom: props.buttonPadding,
 
     backgroundColor: props.buttonBackgroundColor,
 
@@ -30,6 +30,7 @@ export default function CustomButton(props) {
 
   return (
     <Button
+      disableRipple={props.ripple}
       variant={props.buttonVariant}
       sx={buttonStyle}
       onClick={props.buttonAction}

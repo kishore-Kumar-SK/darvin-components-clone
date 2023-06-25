@@ -3,10 +3,11 @@ import { Grid } from "@mui/material";
 import LoginImg from "./LoginImg";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import CustomButton from "../SubmitButton";
+import CustomButton from "../../Utility/SubmitButton";
 import { useState } from "react";
 import PoweredByNst from "../../Assets/Powered by new street tech.svg";
 import Icon from "../../Assets/Icon.svg";
+import LoginAndBar from "./LoginAndBar";
 
 const LoginComponent = () => {
   const [employeeId, setEmployeeId] = useState("");
@@ -43,28 +44,7 @@ const LoginComponent = () => {
           width="54%"
           sx={{ marginBottom: "20%" }}
         >
-          <Grid
-            item
-            xs={12}
-            sx={{
-              fontSize: "25px",
-              fontWeight: 500,
-              lineHeight: "25px",
-              letterSpacing: "0em",
-              marginTop: "10%",
-            }}
-          >
-            Login
-          </Grid>
-          <Grid item sx={{ marginTop: "3%" }}>
-            <div
-              style={{
-                width: "28px",
-                height: "6px",
-                backgroundColor: "#01468E",
-              }}
-            ></div>
-          </Grid>
+          <LoginAndBar />
           {forgotId && (
             <>
               <Grid item sx={{ marginTop: "3%" }}>
@@ -92,7 +72,9 @@ const LoginComponent = () => {
                   Your Employee ID Will Be Shared To Your Registered Mobile
                   Number
                 </Typography>
-                <Grid item sx={{ marginTop: "6%" }}>
+              </Grid>
+              <Grid item sx={{ marginTop: "6%" }}>
+                <div style={{ display: "flex", alignItems: "center" }}>
                   <TextField
                     id="standard-basic"
                     label="Mobile Number"
@@ -122,48 +104,48 @@ const LoginComponent = () => {
                     // buttonAction={}
                     borderStyle=""
                   />
-                </Grid>
-                <Grid item sx={{ marginTop: "3%" }}>
-                  <div style={{ display: "flex", alignItems: "center" }}>
+                </div>
+              </Grid>
+              <Grid item sx={{ marginTop: "3%" }}>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <Typography
+                    sx={{
+                      color: "#000",
+                      fontSize: "12px",
+                      fontFamily: "Metropolis",
+                      fontWeight: "500",
+                      lineHeight: "17px",
+                    }}
+                  >
+                    Didn't receive ID?
+                  </Typography>
+                  <button
+                    type="button"
+                    onClick={() => setForgotid(true)}
+                    style={{
+                      border: "none",
+                      backgroundColor: "transparent",
+                      cursor: "pointer",
+                    }}
+                  >
                     <Typography
+                      variant="body1"
+                      component="span"
                       sx={{
-                        color: "#000",
+                        color: "#D21113",
                         fontSize: "12px",
                         fontFamily: "Metropolis",
-                        fontWeight: "500",
+                        fontWeight: "600",
                         lineHeight: "17px",
+                        "&:hover": {
+                          textDecoration: "underline",
+                        },
                       }}
                     >
-                      Didn't receive ID?
+                      Resend ID
                     </Typography>
-                    <button
-                      type="button"
-                      onClick={() => setForgotid(true)}
-                      style={{
-                        border: "none",
-                        backgroundColor: "transparent",
-                        cursor: "pointer",
-                      }}
-                    >
-                      <Typography
-                        variant="body1"
-                        component="span"
-                        sx={{
-                          color: "#D21113",
-                          fontSize: "12px",
-                          fontFamily: "Metropolis",
-                          fontWeight: "300",
-                          lineHeight: "17px",
-                          "&:hover": {
-                            textDecoration: "underline",
-                          },
-                        }}
-                      >
-                        Resend ID
-                      </Typography>
-                    </button>
-                  </div>
-                </Grid>
+                  </button>
+                </div>
               </Grid>
             </>
           )}
@@ -219,6 +201,7 @@ const LoginComponent = () => {
               // buttonAction={}
               borderStyle=""
               buttonDisabled={employeeId.length > 0 ? false : true}
+              ripple={true}
             />
           </Grid>
         </Grid>
